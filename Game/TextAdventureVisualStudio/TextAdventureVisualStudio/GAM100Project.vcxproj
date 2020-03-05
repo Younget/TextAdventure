@@ -84,6 +84,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="LabCoat.h" />
     <ClInclude Include="ReadCommandHandler.h" />
     <ClInclude Include="SmashCommandHander.h" />
     <ClInclude Include="Source\BrickFunctions.h" />
@@ -103,11 +104,14 @@
     <ClInclude Include="Source\GoCommandHandler.h" />
     <ClInclude Include="Source\GoldPieceFunctions.h" />
     <ClInclude Include="Source\HelpCommandHandler.h" />
+    <ClInclude Include="Source\HospitalBillFunctions.h" />
     <ClInclude Include="Source\InputProvider.h" />
     <ClInclude Include="Source\InventoryCommandHandler.h" />
     <ClInclude Include="Source\Item.h" />
     <ClInclude Include="Source\ItemList.h" />
     <ClInclude Include="Source\LookCommandHandler.h" />
+    <ClInclude Include="Source\MapFunctions.h" />
+    <ClInclude Include="Source\NewspaperFunctions.h" />
     <ClInclude Include="Source\QuitCommandHandler.h" />
     <ClInclude Include="Source\Room.h" />
     <ClInclude Include="Source\RoomExit.h" />
@@ -121,6 +125,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CommandListFactory.c" />
+    <ClCompile Include="LabCoat.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="SmashCommandHandler.c" />
     <ClCompile Include="Source\BrickFunctions.c" />
@@ -135,11 +140,14 @@
     <ClCompile Include="Source\GoCommandHandler.c" />
     <ClCompile Include="Source\GoldPieceFunctions.c" />
     <ClCompile Include="Source\HelpCommandHandler.c" />
+    <ClCompile Include="Source\HospitalBillFunctions.c" />
     <ClCompile Include="Source\InputProvider.c" />
     <ClCompile Include="Source\InventoryCommandHandler.c" />
     <ClCompile Include="Source\Item.c" />
     <ClCompile Include="Source\ItemList.c" />
     <ClCompile Include="Source\LookCommandHandler.c" />
+    <ClCompile Include="Source\MapFunctions.c" />
+    <ClCompile Include="Source\NewspaperFunctions.c" />
     <ClCompile Include="Source\QuitCommandHandler.c" />
     <ClCompile Include="Source\ReadCommandHandler.c" />
     <ClCompile Include="Source\Room.c" />

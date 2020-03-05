@@ -26,7 +26,7 @@ void HospitalBill_Take(CommandContext context, GameState* gameState, WorldData* 
 	UNREFERENCED_PARAMETER(worldData);
 
 	/* Give the user a hint about how the newspaper might be used, whenever it is picked up. */
-	printf("The bill appears to be new as it was printed just now.\n");
+	printf("The bill appears to be oddly recent besides a few specks of dust.\n");
 }
 /* Helper: The action perfromed when the bill is read*/
 void HospitalBill_Read(CommandContext context, GameState* gameState, WorldData* worldData)
@@ -48,5 +48,5 @@ void HospitalBill_Read(CommandContext context, GameState* gameState, WorldData* 
 Item* HospitalBill_Build()
 {
 	/* Create a "Hospital Bill" item, using the functions defined in this file */
-	return Item_Create("hospital bill", "Your name is on the bill for an experamental drug\n", true, NULL , HospitalBill_Take, NULL, HospitalBill_Read, NULL, NULL );
+	return Item_Create("hospital bill", "Your name is on the bill for an experamental drug\n", true, NULL , HospitalBill_Take, NULL);
 }

@@ -18,7 +18,7 @@ This file defines the Hospital Bill Iteam in the game
 #include "Item.h" /* Item_Create */
 
 
-void Map_Take(CommandContext context, GameState* gameState, WorldData* worldData)
+void LabCoat_Take(CommandContext context, GameState* gameState, WorldData* worldData)
 {
 	/* avoid W4 warnings on unused parameters - this function conforms to a function typedef */
 	UNREFERENCED_PARAMETER(context);
@@ -29,7 +29,7 @@ void Map_Take(CommandContext context, GameState* gameState, WorldData* worldData
 	printf("The map appears to be dated but unused \n");
 }
 
-void Map_Read(CommandContext context, GameState* gameState, WorldData* worldData)
+void LabCoat_Read(CommandContext context, GameState* gameState, WorldData* worldData)
 {
 	if ((gameState == NULL) || (worldData == NULL))
 	{
@@ -39,17 +39,31 @@ void Map_Read(CommandContext context, GameState* gameState, WorldData* worldData
 	if (context != CommandContext_Item_Inventory)
 	{
 		/* the user doesn't have the brick - inform the user of the problem and take no action */
-		printf("You cannot read what you don't have, better find that map.\n");
+		printf("You cannot read what you don't have, better find that newspaper.\n");
+		return;
+	}
+}
+
+void LabCoat_Use(CommandContext context, GameState* gameState, WorldData* worldData)
+{
+	if ((gameState == NULL) || (worldData == NULL))
+	{
+		return; /* take no action if the parameters are invalid */
+	}
+
+	if (context != CommandContext_Item_Inventory)
+	{
+		/* the user doesn't have the brick - inform the user of the problem and take no action */
+		printf("Instead of actually having a labcoat, you put on your imaginary labcoat. You'd probably have better use with a real one though.\n");
 		return;
 	}
 
-	/*Make code that will read out a description */
-
-	printf("Upon holding the map centimeters in front of your face, you find out that the local subway can take you to 'times square' and some other location that is blurry and illegible.");
-	printf("You shrug it off and crudely stuff it back inside your pocket.\n");
+	printf("You decide the best course of action is to wear the labcoat. Congratulations, you now have a swanky dated labcoat");
 }
-Item* Map_Build()
+
+
+Item* LabCoat_Build()
 {
 	/* Create a "Hospital Bill" item, using the functions defined in this file */
-	return Item_Create("map", "you pick up a map of the subway system\n", true, NULL, Map_Take, NULL);
+	return Item_Create("map", "you pick up a somewhat dusty labcoat, it has a small blue text on it. \n", true, LabCoat_Use, LabCoat_Take, NULL);
 }
