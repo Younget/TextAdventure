@@ -10,4 +10,4 @@ typedef struct GameState GameState;
 typedef struct WorldData WorldData;
 
 
-void HandleReadCommand();
+void HandleTypeCommand(CommandData* command, GameState* gameState, WorldData* worldData);

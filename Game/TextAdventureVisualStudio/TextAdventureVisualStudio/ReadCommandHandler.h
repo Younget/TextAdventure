@@ -13,4 +13,4 @@ typedef struct GameState GameState;
 typedef struct WorldData WorldData;
 
 
-void HandleReadCommand();
+void HandleReadCommand(CommandData* command, GameState* gameState, WorldData* worldData);
