@@ -17,7 +17,7 @@ typedef struct CommandData CommandData;
 typedef struct GameState GameState;
 typedef struct WorldData WorldData;
 
-void HandleTypeCommand(CommandData* command, GameState* gameState, WorldData* worldData)
+/*void HandleTypeCommand(CommandData* command, GameState* gameState, WorldData* worldData)
 {
 
-}
+}*/

@@ -18,21 +18,27 @@ This file defines the Item interface, which is used to manage items in the game.
 /* the maximum length of an item's description */
 #define MAX_ITEM_DESCRIPTION_LENGTH 128
 
+#define MAX_TEXT_LENGTH 256
+
 
 /* An item in the game */
 typedef struct Item
 {
 	char name[MAX_ITEM_NAME_LENGTH];	/* the name of the item, used for noun matching */
 	char description[MAX_ITEM_DESCRIPTION_LENGTH];	/* a description of the item */
+	char text[MAX_TEXT_LENGTH]; /* some objects have text that can be read off them */
 	bool isCarryable;	/* if true, the item can be put in the user's inventory*/
 	ItemFunc useFunc;	/* a function called when the user uses this item, if any */
 	ItemFunc takeFunc;	/* a function called when the user takes this item, if any */
 	ItemFunc dropFunc;	/* a function called when the user uses this item, if any */
+	ItemFunc readFunc;  /* a function called when user reads item */
+	ItemFunc smashFunc; /* a function called when user smashes an item*/
+	ItemFunc typeFunc;  /* a function called when user wants to type something */
 } Item;
 
 
 /* Create a new Item object with the provided data */
-Item* Item_Create(const char* name, const char* description, bool isCarryable, ItemFunc useFunc, ItemFunc takeFunc, ItemFunc dropFunc)
+Item* Item_Create(const char* name, const char* description, bool isCarryable, ItemFunc useFunc, ItemFunc takeFunc, ItemFunc dropFunc, ItemFunc readFunc, ItemFunc smashFunc, ItemFunc typeFunc)
 {
 	Item *item; /* the new item to be returned */
 
@@ -59,6 +65,10 @@ Item* Item_Create(const char* name, const char* description, bool isCarryable, I
 	item->useFunc = useFunc;
 	item->takeFunc = takeFunc;
 	item->dropFunc = dropFunc;
+	item->readFunc = readFunc;
+	item->smashFunc = smashFunc;
+	item->typeFunc = typeFunc; 
+
 
 	/* return the new object */
 	return item;
@@ -127,6 +137,26 @@ ItemFunc Item_GetDropFunc(Item* item)
 {
 	/* return the data if the parameter is not NULL, otherwise return NULL */
 	return (item != NULL) ? item->dropFunc : NULL;
+}
+/*retrieves the "read" function for item if it exists*/
+ItemFunc Item_GetReadFunc(Item* item)
+{
+	/* return the data if the parameter is not Null, otherwise return NULL*/
+	return (item != NULL) ? item->readFunc : NULL;
+}
+
+/*retrieves the "type" function for item if it exists*/
+ItemFunc Item_GetTypeFunc(Item* item)
+{
+	/* return the data if the parameter is not Null, otherwise return NULL*/
+	return (item != NULL) ? item->typeFunc : NULL;
+}
+
+/*retrieves the "smash" function for item if it exists*/
+ItemFunc Item_GetSmashFunc(Item* item)
+{
+	/* return the data if the parameter is not Null, otherwise return NULL*/
+	return (item != NULL) ? item->smashFunc : NULL;
 }
 
 

@@ -16,7 +16,7 @@ typedef struct CommandData CommandData;
 typedef struct GameState GameState;
 typedef struct WorldData WorldData;
 
-void HandleSmashCommand(CommandData* command, GameState* gameState, WorldData* worldData)
+/*void HandleSmashCommand(CommandData* command, GameState* gameState, WorldData* worldData)
 {
 
-}
+}*/
