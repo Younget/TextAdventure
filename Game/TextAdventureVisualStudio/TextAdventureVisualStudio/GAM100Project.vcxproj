@@ -84,6 +84,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="LabCoat.h" />
     <ClInclude Include="ReadCommandHandler.h" />
     <ClInclude Include="SmashCommandHander.h" />
     <ClInclude Include="Source\BrickFunctions.h" />
@@ -124,6 +125,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CommandListFactory.c" />
+    <ClCompile Include="LabCoat.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="SmashCommandHandler.c" />
     <ClCompile Include="Source\BrickFunctions.c" />

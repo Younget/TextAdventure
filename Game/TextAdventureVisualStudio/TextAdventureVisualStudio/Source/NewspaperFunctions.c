@@ -47,12 +47,11 @@ void Newspaper_Read(CommandContext context, GameState* gameState, WorldData* wor
 		return;
 	}
 
-
 	printf("After close inspection with the ragged newspaper, you determine that millions of people fell unconscious aproximately five years ago. You also examine a small political cartoon of whatever.\n");
 }
 
 Item* Newspaper_Build()
 {
 	/* Create a "newspaper" item, using the functions defined in this file */
-	return Item_Create("newspaper", "A newspaper from around five years ago", true, NULL, Newspaper_Take, NULL, Newspaper_Read, NULL, NULL);
+	return Item_Create("newspaper", "A newspaper from around five years ago", true, NULL, Newspaper_Take, NULL);
 }
