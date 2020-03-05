@@ -1,7 +1,7 @@
 /******************************************************************************
-filename    HospitalBill.h
-author      Matthew Picioccio
-DP email    mattpic@digipen.edu
+filename    LabCoatFunctions.h
+author      Ethan Young
+DP email    ethany905@gmail.com
 course      GAM100 ** Do not use this code in your team project
 
 Brief Description:

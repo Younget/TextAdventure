@@ -1,7 +1,7 @@
 /******************************************************************************
-filename    HospitalBill.c
-author      Nick Fayerweather
-DP email    nick.fayerweather@digipen.edu
+filename    LabCoatFunctions.c
+author      Ethan Young
+DP email    ethany905@gmail.com
 course      GAM100 ** Do not use this code in your team project
 
 Brief Description:
@@ -9,7 +9,7 @@ This file defines the Hospital Bill Iteam in the game
 
 ******************************************************************************/
 #include "stdafx.h" /* UNREFERENCED_PARAMETER, NULL*/
-#include "MapFunctions.h" /* Function declarations */
+#include "LabCoatFunctions.h" /* Function declarations */
 #include "GameState.h" /* struct GameState, GameState_ChangeScore */
 #include "GameFlags.h" /* GameFlags_IsInList */
 #include "WorldData.h" /* WorldData_GetRoom */
@@ -65,5 +65,5 @@ void LabCoat_Use(CommandContext context, GameState* gameState, WorldData* worldD
 Item* LabCoat_Build()
 {
 	/* Create a "Hospital Bill" item, using the functions defined in this file */
-	return Item_Create("map", "you pick up a somewhat dusty labcoat, it has a small blue text on it. \n", true, LabCoat_Use, LabCoat_Take, NULL);
+	return Item_Create("labcoat", "you pick up a somewhat dusty labcoat, it has a small blue text on it. \n", true, LabCoat_Use, LabCoat_Take, NULL);
 }
