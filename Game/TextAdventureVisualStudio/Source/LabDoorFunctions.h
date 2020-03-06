@@ -1,11 +1,11 @@
 /******************************************************************************
-filename    MapFunctions.c
-author      Nick Fayerweather
-DP email    nick.fayerweather@digipen.edu
+filename    LabDoorFunctions.h
+author      Ethan Young
+DP email    ethany905@gmail.com
 course      GAM100 ** Do not use this code in your team project
 
 Brief Description:
-This file declares the functions to create a specific item, the "hospitalbill".
+This file declares the functions to create a specific item, the "lab door".
 
 ******************************************************************************/
 #pragma once
@@ -13,5 +13,5 @@ This file declares the functions to create a specific item, the "hospitalbill".
 typedef struct Item Item;
 
 
-/* Build a "brick" object */
-Item* Map_Build();
+/* Build a "exit door" object */
+Item* LabDoor_Build();

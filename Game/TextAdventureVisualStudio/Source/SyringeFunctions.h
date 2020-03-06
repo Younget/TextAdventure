@@ -1,11 +1,11 @@
 /******************************************************************************
-filename    MapFunctions.c
-author      Nick Fayerweather
-DP email    nick.fayerweather@digipen.edu
+filename    RottenFoodFunctions.c
+author      Ethan Young
+DP email    ethany905@gmail.com
 course      GAM100 ** Do not use this code in your team project
 
 Brief Description:
-This file declares the functions to create a specific item, the "hospitalbill".
+This file declares the functions to create a specific item, the "rotten food".
 
 ******************************************************************************/
 #pragma once
@@ -14,4 +14,4 @@ typedef struct Item Item;
 
 
 /* Build a "brick" object */
-Item* Map_Build();
+Item* Syringe_Build();

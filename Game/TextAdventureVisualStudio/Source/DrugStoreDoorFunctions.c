@@ -13,12 +13,13 @@ This file defines the functions to create a specific item, the "exit door".
 #include "GameState.h" /* struct GameState, GameState_EndGame */
 #include "ItemList.h" /* ItemList_FindItem */
 #include "Item.h" /* Item_Create */
+#include "SledgehammerFunctions.h" /* Sledgehammer_Build */
 
 typedef struct WorldData WorldData;
 
 
 /* Helper: The action performed when the exit door is used. */
-void ExitDoor_Use(CommandContext context, GameState* gameState, WorldData* worldData)
+void DrugStoreDoor_Use(CommandContext context, GameState* gameState, WorldData* worldData)
 {
 	Item* sledgehammer; /* the egg in the user's inventory */
 
@@ -36,17 +37,20 @@ void ExitDoor_Use(CommandContext context, GameState* gameState, WorldData* world
 		return;
 }
 
-void ExitDoor_smash(CommandContext context, GameState* gameState, WorldData* worldData)
+void DrugStoreDoor_Smash(CommandContext context, GameState* gameState, WorldData* worldData)
 {
-	Item* sledgehammer; /* the egg in the user's inventory */
+	Item* sledgehammer; /* the sledgehammer in the user's inventory */
 
-	/* find the egg in the user's inventory */
+	/* find the sledgehammer in the user's inventory */
 	Item* sledgehammer = ItemList_FindItem(gameState->inventory, "sledgehammer");
 
+	/* Checks whether sledgehammer is actually there*/
 	if (sledgehammer != NULL)
 	{
-		printf("You destroy that stuff");
+		printf("With a mighty swing, you miss your target and the sheer force makes you spin one-hundred-eighty degrees. Your body clashes into the weak barricade and the sledgehammer is left flying off into a distant window.\n ");
+		printf("Yay?");
 	}
+	return;
 }
 
 
@@ -54,5 +58,5 @@ void ExitDoor_smash(CommandContext context, GameState* gameState, WorldData* wor
 Item* DrugStoreDoor_Build()
 {
 	/* Create a "exit door" item, using the functions defined in this file */
-	return Item_Create("door", "The drug store door has a flimsy barricade that could be destroyed with enough force\n", false, ExitDoor_Use, NULL, NULL);
+	return Item_Create("barricaded door", "The drug store door has a flimsy barricade that could be destroyed with enough force\n", false, DrugStoreDoor_Use, NULL, NULL, NULL, DrugStoreDoor_Smash, NULL);
 }

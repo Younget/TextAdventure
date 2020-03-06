@@ -42,6 +42,11 @@ void LabCoat_Read(CommandContext context, GameState* gameState, WorldData* world
 		printf("You cannot read what you don't have, better find that newspaper.\n");
 		return;
 	}
+
+	else
+	{
+		printf("Upon further inspection, you recognize that the small blue text as your name!\nWhat were you doing here?\n");
+	}
 }
 
 void LabCoat_Use(CommandContext context, GameState* gameState, WorldData* worldData)
@@ -58,12 +63,15 @@ void LabCoat_Use(CommandContext context, GameState* gameState, WorldData* worldD
 		return;
 	}
 
-	printf("You decide the best course of action is to wear the labcoat. Congratulations, you now have a swanky dated labcoat");
+	else
+	{
+		printf("You decide the best course of action is to wear the labcoat. Congratulations, you now have a swanky dated labcoat");
+	}
 }
 
 
 Item* LabCoat_Build()
 {
 	/* Create a "Hospital Bill" item, using the functions defined in this file */
-	return Item_Create("labcoat", "you pick up a somewhat dusty labcoat, it has a small blue text on it. \n", true, LabCoat_Use, LabCoat_Take, NULL);
+	return Item_Create("labcoat", "you pick up a somewhat dusty labcoat, it has a small blue text on it. \n", true, LabCoat_Use, LabCoat_Take, NULL, LabCoat_Read, NULL, NULL);
 }
