@@ -13,7 +13,7 @@ This file defines the functions to create a specific item, the "lab door".
 #include "GameState.h" /* struct GameState, GameState_EndGame */
 #include "ItemList.h" /* ItemList_FindItem */
 #include "Item.h" /* Item_Create */
-/* #include "KeyCardFunctions.h" */
+#include "KeycardFunctions.h" 
 
 typedef struct WorldData WorldData;
 
