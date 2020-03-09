@@ -46,10 +46,9 @@ void Newspaper_Read(CommandContext context, GameState* gameState, WorldData* wor
 		printf("You cannot read what you don't have, better find that newspaper.\n");
 		return;
 	}
-	else
-	{
-		printf("After close inspection with the ragged newspaper, you determine that millions of people fell unconscious aproximately five years ago. You also examine a small political cartoon of whatever.\n");
-	}
+
+
+	printf("After close inspection with the ragged newspaper, you determine that millions of people fell unconscious aproximately five years ago. You also examine a small political cartoon of whatever.\n");
 }
 
 Item* Newspaper_Build()

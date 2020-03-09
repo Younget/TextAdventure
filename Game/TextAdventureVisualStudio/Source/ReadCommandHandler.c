@@ -7,73 +7,64 @@ This file defines functions that handle the "read" user command, which allows th
 
 ******************************************************************************/
 #include "stdafx.h" /* NULL, printf */
-#include "GoCommandHandler.h" /* Function declarations */
+#include "ReadCommandHandler.h" /* Function declarations */
 #include "CommandData.h" /* struct CommandData */
 #include "GameState.h" /* struct GameState */
 #include "WorldData.h" /* WorldData_GetRoom */
 #include "Room.h" /* Room_Print, Room_GetItemList */
-#include "ItemList.h" /* ItemList_FindItem */
-#include "Item.h" /* Item_Print */
+#include "ItemList.h" /* ItemList_FindItem, ItemList_Remove, ItemList_Add */
+#include "Item.h"
+#include <stdio.h>  /*printf*/
 
 
-typedef struct CommandData CommandData;
-typedef struct GameState GameState;
-typedef struct WorldData WorldData;
 /*Handles Read Command which displays text for objects*/
 void HandleReadCommand(CommandData* command, GameState* gameState, WorldData* worldData)
 {
-	Item* item; /* the item referred to by the command noun, if any */
+
+	Item* readItem; /* the item removed from the room and added to the user's inventory */
 	Room* room; /* the current room */
-	ItemList** roomItemsPtr; /* the list of items in the room */
+	ItemList** roomItemPtr; /* the list of items in the current room */
+	ItemFunc readFunc; /* The function to be called for the given item when it is taken */
 
 	/* safety check on the parameters */
-	if ((command == NULL) || (gameState == NULL) || (worldData == NULL))
+	if ((command == NULL) || (command->noun == NULL) || (gameState == NULL) || (worldData == NULL))
 	{
 		return; /* take no action if the parameters are invalid */
 	}
 
-	/* get the current room */
+	/* retrieve the current room */
 	room = WorldData_GetRoom(worldData, gameState->currentRoomIndex);
 
-	/* if there is no noun specified, then the command refer to the room */
-	if ((command->noun == NULL) || (strnlen_s(command->noun, MAX_COMMAND_NOUN_LENGTH) == 0))
-	{
-		/* if we have a room (and we always should), print its description */
-		if (room != NULL)
-		{
-			printf("(looking at the room)\n"); /* clarify the target for the user */
-			Room_Print(room);
-		}
-		return;
-	}
-
-	/* search for the item in the user's inventory, which takes precedence over the room */
-	item = ItemList_FindItem(gameState->inventory, command->noun);
-	if (item != NULL)
+	/*checks if object is in inventory*/
+	readItem = ItemList_FindItem(gameState->inventory, command->noun);
+	if (readItem != NULL)
 	{
 		printf("(in your inventory)\n"); /* clarify the target for the user */
 		/* an item matching the noun was found in the user's inventory - print its description */
-		Item_Print(item);
+		Item_Print(readItem);
 		return;
 	}
 
-	/* retrieve the set of items in the room */
-	roomItemsPtr = Room_GetItemList(room);
-	if (roomItemsPtr == NULL)
+	/* get the current room's item list */
+	roomItemPtr = Room_GetItemList(room);
+	if (roomItemPtr == NULL)
 	{
-		return; /* the item list pointer is missing - something has gone wrong.  take no action */
+		return; /* there was no room or item list pointer - something is wrong.  take no action */
 	}
 
-	/* search for the item in the current room */
-	item = ItemList_FindItem(*roomItemsPtr, command->noun);
-	if (item != NULL)
+	/* find the item in the current room's item list, using the command noun */
+	readItem = ItemList_FindItem(*roomItemPtr, command->noun);
+	if (readItem == NULL)
 	{
-		printf("(in the room)\n"); /* clarify the target for the user */
-		/* an item matching the noun was found in the current room - print its description */
-		Item_Print(item);
+		/* the item was not found - inform the user of the problem and take no action */
+		printf("You do not see a %s here.\n", command->noun);
 		return;
 	}
-
-	/* the noun didn't match an available item, so inform the user that there is no match */
-	printf("You do not see a %s here.", command->noun);
+	readFunc = Item_GetReadFunc(readItem);
+	if (readFunc != NULL)
+	{
+		/* call the drop function with the Inventory context, since that's where the item was */
+		readFunc(CommandContext_Item_Inventory, gameState, worldData);
+	}
+	printf("%s",readItem->text);
 }

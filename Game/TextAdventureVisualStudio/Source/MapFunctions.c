@@ -1,5 +1,5 @@
 /******************************************************************************
-filename    MapFunctions.c
+filename    HospitalBill.c
 author      Nick Fayerweather
 DP email    nick.fayerweather@digipen.edu
 course      GAM100 ** Do not use this code in your team project
@@ -26,7 +26,7 @@ void Map_Take(CommandContext context, GameState* gameState, WorldData* worldData
 	UNREFERENCED_PARAMETER(worldData);
 
 	/* Give the user a hint about how the newspaper might be used, whenever it is picked up. */
-	printf("The map appears to be dated but unused \n");
+	printf("The map appears to be new and unused \n");
 }
 
 void Map_Read(CommandContext context, GameState* gameState, WorldData* worldData)
@@ -39,20 +39,13 @@ void Map_Read(CommandContext context, GameState* gameState, WorldData* worldData
 	if (context != CommandContext_Item_Inventory)
 	{
 		/* the user doesn't have the brick - inform the user of the problem and take no action */
-		printf("You cannot read what you don't have, better find that map.\n");
+		printf("\n");
 		return;
 	}
-
-	/*Make code that will read out a description */
-	else
-	{
-		printf("Upon holding the map centimeters in front of your face, you find out that the local subway can take you to 'times square' and some other location that is blurry and illegible.");
-		printf("You shrug it off and crudely stuff it back inside your pocket.\n");
-	}
+	printf(" \n ");
 }
-
 Item* Map_Build()
 {
 	/* Create a "Hospital Bill" item, using the functions defined in this file */
-	return Item_Create("map", "you pick up a map of the subway system\n", true, NULL, Map_Take, NULL, Map_Read, NULL, NULL);
+	return Item_Create("map", "you pick up a map of the city\n", true, NULL, Map_Take, NULL, Map_Read, NULL, NULL);
 }
