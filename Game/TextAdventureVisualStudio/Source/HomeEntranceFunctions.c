@@ -19,34 +19,25 @@ typedef struct WorldData WorldData;
 
 
 /* Helper: The action performed when the exit door is used. */
-void SubwayDoor_Use(CommandContext context, GameState* gameState, WorldData* worldData)
+void HomeDoor_Use(CommandContext context, GameState* gameState, WorldData* worldData)
 {
-	Item* subwayticket; /* the egg in the user's inventory */
+	/* Item* subwayticket; /* the item in the user's inventory */ 
 
 	/* avoid W4 warnings on unused parameters - this function conforms to a function typedef */
 	UNREFERENCED_PARAMETER(context);
 	UNREFERENCED_PARAMETER(worldData);
 
-	/* find the egg in the user's inventory */
-	subwayticket = ItemList_FindItem(gameState->inventory, "subway ticket");
+	/* find the item in the user's inventory */
+	/* subwayticket = ItemList_FindItem(gameState->inventory, "subway ticket"); */
 	
-	if (subwayticket != NULL)
-	{
-		printf("You realize that you had your subway ticket and you deftly put the ticket into a small slot in a beefy machine.\nThe ticket gets sucked in and becomes shredded with hundreds of tiny scraps of paper flying all over the place.");
-		printf("With a loud bang, The gate before you falls flat onto the ground. Guess you can use the subway station now?");
-		return;
-	}
+	
+	/* TODO: Determine either item found or room passed */
 
-	else
-	{
-		printf("You cannot enter this barricaded door without excessive force, which your body seemingly lacks.\n");
-		return;
-	}
 }
 
 /* Build a "exit door" object */
-Item* SubwayDoor_Build()
+Item* HomeDoor_Build()
 {
 	/* Create a "exit door" item, using the functions defined in this file */
-	return Item_Create("subway entrance", "The subway entrance seems to be locked by a gate, a sign beside the gate says 'You need a ticket to enter the station'.\nLooks like you need a ticket\n", false, SubwayDoor_Use, NULL, NULL, NULL, NULL, NULL);
+	return Item_Create("subway entrance", "The subway entrance seems to be locked by a gate, a sign beside the gate says 'You need a ticket to enter the station'.\nLooks like you need a ticket\n", false, HomeDoor_Use, NULL, NULL, NULL, NULL, NULL);
 }
