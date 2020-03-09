@@ -7,7 +7,7 @@ course      GAM100 ** Do not use this code in your team project
 Brief Description:
 This file contains the definition for the Command Context enumeration, which is 
 used to specify the source of commands.
-
+All content © 2020 DigiPen (USA) Corporation, all rights reserved.
 ******************************************************************************/
 #pragma once
 

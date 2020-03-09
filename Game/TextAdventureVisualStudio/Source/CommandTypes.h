@@ -6,7 +6,7 @@ course      GAM100 ** Do not use this code in your team project
 
 Brief Description:
 This file declares other types needed for the command system.
-
+All content © 2020 DigiPen (USA) Corporation, all rights reserved.
 ******************************************************************************/
 #pragma once
 

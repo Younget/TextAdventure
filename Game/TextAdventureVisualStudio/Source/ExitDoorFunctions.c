@@ -6,7 +6,7 @@ course      GAM100 ** Do not use this code in your team project
 
 Brief Description:
 This file defines the functions to create a specific item, the "exit door".
-
+All content © 2020 DigiPen (USA) Corporation, all rights reserved.
 ******************************************************************************/
 #include "stdafx.h" /* NULL, UNREFERENCED_PARAMETER */
 #include "ExitDoorFunctions.h" /* Function declarations */

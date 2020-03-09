@@ -8,7 +8,7 @@ Brief Description:
 This file includes just the standard includes.
 GAM100Project.pch will be the pre-compiled header
 stdafx.obj will contain the pre-compiled type informati
-
+All content © 2020 DigiPen (USA) Corporation, all rights reserved.
 ******************************************************************************/
 #include "stdafx.h"
 

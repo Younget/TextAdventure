@@ -7,7 +7,7 @@ course      GAM100 ** Do not use this code in your team project
 Brief Description:
 This file defines the ItemList interface, which is used to manage lists of
 items in the game.
-
+All content © 2020 DigiPen (USA) Corporation, all rights reserved.
 ******************************************************************************/
 #include "stdafx.h" /* NULL, malloc/free, printf, strcmp, */
 #include "ItemList.h" /* Function declarations */

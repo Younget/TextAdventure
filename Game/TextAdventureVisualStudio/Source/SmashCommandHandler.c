@@ -1,9 +1,13 @@
-/*
-SmashCommandHandler.c
-By:Esther Strathy
-3/4/2020
-Description: Handles smash command so player can break stuff
-*/
+/******************************************************************************
+filename    SmashCommandHandler.c
+author      Esther Strathy
+DP email    esther.strathy@digipen.edu
+course      GAM100 ** Do not use this code in your team project
+
+Brief Description:
+Command handler for the "Smash" command 
+All content © 2020 DigiPen (USA) Corporation, all rights reserved.
+******************************************************************************/
 
 #include "stdafx.h" /* NULL, printf */
 #include "CommandData.h" /* struct CommandData */
@@ -54,7 +58,7 @@ void HandleSmashCommand(CommandData* command, GameState* gameState, WorldData* w
 	}
 
 	/* get the "smash" function for this item, if any (it is optional) */
-	smashFunc = Item_GetDropFunc(smashItem);
+	smashFunc = Item_GetSmashFunc(smashItem);
 	if (smashFunc != NULL)
 	{
 		/* call the drop function with the Inventory context, since that's where the item was */

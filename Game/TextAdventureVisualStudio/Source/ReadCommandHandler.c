@@ -1,10 +1,12 @@
 /******************************************************************************
 filename    ReadCommandHandler.c
 author      Esther Strathy
+DP email    esther.strathy@digipen.edu
+course      GAM100 ** Do not use this code in your team project
 
 Brief Description:
-This file defines functions that handle the "read" user command, which allows the player to read things
-
+Command handler for "read" function which allows player to read text off objects 
+All content © 2020 DigiPen (USA) Corporation, all rights reserved.
 ******************************************************************************/
 #include "stdafx.h" /* NULL, printf */
 #include "ReadCommandHandler.h" /* Function declarations */

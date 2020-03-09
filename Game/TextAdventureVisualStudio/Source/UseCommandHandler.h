@@ -7,7 +7,7 @@ course      GAM100 ** Do not use this code in your team project
 Brief Description:
 This file declares functions that handle the "use" user command, which calls 
 an item-specific function on a given item
-
+All content © 2020 DigiPen (USA) Corporation, all rights reserved.
 ******************************************************************************/
 #pragma once
 

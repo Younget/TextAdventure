@@ -7,7 +7,7 @@ course      GAM100 ** Do not use this code in your team project
 Brief Description:
 This file defines functions that handle the "drop" user command, which removes
 the specified item from the user's inventory and adds it to the current room.
-
+All content © 2020 DigiPen (USA) Corporation, all rights reserved.
 ******************************************************************************/
 #include "stdafx.h" /* NULL */
 #include "DropCommandHandler.h" /* Function declarations */

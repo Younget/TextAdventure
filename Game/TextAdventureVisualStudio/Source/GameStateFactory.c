@@ -7,7 +7,7 @@ course      GAM100 ** Do not use this code in your team project
 Brief Description:
 This file implements the GameState factory, which creates the game state objects used
 in this game.
-
+All content © 2020 DigiPen (USA) Corporation, all rights reserved.
 ******************************************************************************/
 #include "GameStateFactory.h" /* Function declarations */
 #include "GameState.h" /* struct GameState, GameState_Create */

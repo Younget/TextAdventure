@@ -7,7 +7,7 @@ course      GAM100 ** Do not use this code in your team project
 Brief Description:
 This file defines functions that handle the "take" user command, which removes
 an item from the current room and adds it to the user's inventory.
-
+All content © 2020 DigiPen (USA) Corporation, all rights reserved.
 ******************************************************************************/
 #include "stdafx.h" /* NULL, printf */
 #include "TakeCommandHandler.h" /* Function declarations */

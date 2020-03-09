@@ -7,7 +7,7 @@ course      GAM100 ** Do not use this code in your team project
 Brief Description:
 This file contains the definition for the CommandData structure, which is used
 to encapsulate the data related to a single command.
-
+All content © 2020 DigiPen (USA) Corporation, all rights reserved.
 ******************************************************************************/
 #pragma once
 #include "CommandContext.h" /* enum CommandContext */

@@ -1,9 +1,13 @@
-/*
-SmashCommandHandler.h
-By:Esther Strathy
-3/4/2020
-Description: header file for smash command
-*/
+/******************************************************************************
+filename    SmashCommandHandler.h
+author      Esther Strathy
+DP email    esther.strathy@digipen.edu
+course      GAM100 ** Do not use this code in your team project
+
+Brief Description:
+Header file for the "Smash" command 
+All content © 2020 DigiPen (USA) Corporation, all rights reserved.
+******************************************************************************/
 
 
 #pragma once

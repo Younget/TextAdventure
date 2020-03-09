@@ -7,7 +7,7 @@ course      GAM100 ** Do not use this code in your team project
 Brief Description:
 This file implements the CommandList, which holds all supported commands and 
 their related functions.
-
+All content © 2020 DigiPen (USA) Corporation, all rights reserved.
 ******************************************************************************/
 #include "stdafx.h" /* NULL, malloc/free, strcpy_s, printf */
 #include "CommandList.h" /* Function and type declarations */

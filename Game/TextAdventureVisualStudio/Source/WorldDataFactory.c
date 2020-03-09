@@ -9,7 +9,7 @@ This file defines the WorldData factory, which creates the WorldData objects use
 in this game.
 
 This could be used to create default states as well as loaded state.
-
+All content © 2020 DigiPen (USA) Corporation, all rights reserved.
 ******************************************************************************/
 #include "WorldDataFactory.h" /* Function declarations */
 #include "WorldData.h" /* WorldData_Create, WorldData_SetRoom */

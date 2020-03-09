@@ -7,7 +7,7 @@ course      GAM100 ** Do not use this code in your team project
 Brief Description:
 This file defines functions that handle the "help" user command, which outputs
 a list of the available verbs.
-
+All content © 2020 DigiPen (USA) Corporation, all rights reserved.
 ******************************************************************************/
 #include "stdafx.h" /* UNREFERENCED_PARAMETER */
 #include "HelpCommandHandler.h" /* Function declarations */

@@ -7,7 +7,7 @@ course      GAM100 ** Do not use this code in your team project
 Brief Description:
 This file defines functions that handle the "inventory" user command, which outputs
 a list of the items in the player's inventory.
-
+All content © 2020 DigiPen (USA) Corporation, all rights reserved.
 ******************************************************************************/
 #include "stdafx.h"
 #include "InventoryCommandHandler.h"

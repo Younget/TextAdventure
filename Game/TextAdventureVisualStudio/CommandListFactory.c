@@ -7,7 +7,7 @@ course      GAM100 ** Do not use this code in your team project
 Brief Description:
 This file implements the CommandList factory, creating the commands used 
 in this game.
-
+All content © 2020 DigiPen (USA) Corporation, all rights reserved.
 ******************************************************************************/
 #include "stdafx.h" /* NULL */
 #include "CommandListFactory.h" /* Function declarations */

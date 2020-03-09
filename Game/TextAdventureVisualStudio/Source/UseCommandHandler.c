@@ -7,7 +7,7 @@ course      GAM100 ** Do not use this code in your team project
 Brief Description:
 This file defines functions that handle the "use" user command, which calls
 an item-specific function on a given item
-
+All content © 2020 DigiPen (USA) Corporation, all rights reserved.
 ******************************************************************************/
 #include "stdafx.h" /* NULL, printf */
 #include "UseCommandHandler.h" /* Function declarations */

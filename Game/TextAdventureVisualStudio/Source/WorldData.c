@@ -8,7 +8,7 @@ Brief Description:
 This file defines the WorldData interface, which is used to manage the entire
 set of data in the game world.  This data is typically static, but it may
 not entirely be so.
-
+All content © 2020 DigiPen (USA) Corporation, all rights reserved.
 ******************************************************************************/
 #include "stdafx.h" /* NULL, malloc/free, printf, strcpy_s */
 #include "WorldData.h" /* Function declarations */

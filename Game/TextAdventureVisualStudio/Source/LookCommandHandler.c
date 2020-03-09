@@ -7,7 +7,7 @@ course      GAM100 ** Do not use this code in your team project
 Brief Description:
 This file defines functions that handle the "look" user command, which outputs
 a description of an item or the current room.
-
+All content © 2020 DigiPen (USA) Corporation, all rights reserved.
 ******************************************************************************/
 #include "stdafx.h" /* NULL, printf, strnlen_s */
 #include "LookCommandHandler.h" /* Function declarations */

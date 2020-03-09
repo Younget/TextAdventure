@@ -6,7 +6,7 @@ course      GAM100 ** Do not use this code in your team project
 
 Brief Description:
 This file defines the Room interface, which is used to manage rooms in the game.
-
+All content © 2020 DigiPen (USA) Corporation, all rights reserved.
 ******************************************************************************/
 #include "stdafx.h" /* NULL, malloc/free, printf, strcpy_s */
 #include "Room.h" /* Function declarations */

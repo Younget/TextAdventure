@@ -6,7 +6,7 @@ course      GAM100 ** Do not use this code in your team project
 
 Brief Description:
 This file defines the Item interface, which is used to manage items in the game.
-
+All content © 2020 DigiPen (USA) Corporation, all rights reserved.
 ******************************************************************************/
 #include "stdafx.h" /* NULL, printf, malloc/free, strcpy_s */
 #include "Item.h" /* Function declarations */

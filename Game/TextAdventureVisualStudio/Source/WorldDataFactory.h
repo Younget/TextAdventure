@@ -9,7 +9,7 @@ This file declares the WorldData factory, which creates the WorldData objects us
 in this game.
 
 This could be used to create default states as well as loaded state.
-
+All content © 2020 DigiPen (USA) Corporation, all rights reserved.
 ******************************************************************************/
 #pragma once
 
