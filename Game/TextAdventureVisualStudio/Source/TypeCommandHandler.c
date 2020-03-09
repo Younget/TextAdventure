@@ -17,7 +17,13 @@ typedef struct CommandData CommandData;
 typedef struct GameState GameState;
 typedef struct WorldData WorldData;
 
-/*void HandleTypeCommand(CommandData* command, GameState* gameState, WorldData* worldData)
+void HandleTypeCommand(CommandData* command, GameState* gameState, WorldData* worldData)
 {
+	/* safety check on the parameters */
+	if ((command == NULL) || (command->noun == NULL) || (gameState == NULL) || (worldData == NULL))
+	{
+		return; /* take no action if the parameters are invalid */
+	}
 
-}*/
+	return; 
+}

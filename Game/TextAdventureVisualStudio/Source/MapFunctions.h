@@ -1,7 +1,7 @@
 /******************************************************************************
-filename    MapFunctions.c
-author      Nick Fayerweather
-DP email    nick.fayerweather@digipen.edu
+filename    HospitalBill.h
+author      Matthew Picioccio
+DP email    mattpic@digipen.edu
 course      GAM100 ** Do not use this code in your team project
 
 Brief Description:

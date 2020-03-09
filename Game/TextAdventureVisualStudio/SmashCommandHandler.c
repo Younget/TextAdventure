@@ -6,14 +6,14 @@ Description: Handles smash command so player can break stuff
 */
 
 #include "stdafx.h" /* NULL, printf */
+#include "SmashCommandHandler.h" /* Function declarations */
 #include "CommandData.h" /* struct CommandData */
 #include "GameState.h" /* struct GameState */
 #include "WorldData.h" /* WorldData_GetRoom */
 #include "Room.h" /* Room_GetNextRoomIndex, Room_Print, INVALID_DIRECTION_ID */
-#include "ItemList.h" /* ItemList_FindItem, ItemList_Remove, ItemList_Add */
-#include "Item.h" /*includes item*/
-#include "DropCommandHandler.h"
-#include "GameFlags.h" /* GameFlags_IsInList */
+#include "Item.c" /*includes item*/
+#include "Item.h"
+
 
 
 typedef struct CommandData CommandData;

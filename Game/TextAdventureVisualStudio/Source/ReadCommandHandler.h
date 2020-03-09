@@ -6,7 +6,6 @@ Description: header file for read command handler
 */
 
 
-
 #pragma once
 typedef struct CommandData CommandData;
 typedef struct GameState GameState;

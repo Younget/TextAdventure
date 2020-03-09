@@ -36,46 +36,51 @@ CommandList* CreateCommandList()
 	CommandList_Add(cmdListPtr, "h", HandleHelpCommand, false);
 	/* TODO REQUIRED: create the "quit" command
 	TODO BASIC: add a short alias "q" */
-	CommandList_Add(cmdListPtr, "quit", HandleHelpCommand, true);
-	CommandList_Add(cmdListPtr, "q", HandleHelpCommand, true);
+	CommandList_Add(cmdListPtr, "quit", HandleQuitCommand, true);
+	CommandList_Add(cmdListPtr, "q", HandleQuitCommand, true);
 
 	/* TODO REQUIRED: create the "drop" command
 	TODO BASIC: add a short alias "d" */
-	CommandList_Add(cmdListPtr, "drop", HandleHelpCommand, true);
+	CommandList_Add(cmdListPtr, "drop", HandleDropCommand, true);
+	CommandList_Add(cmdListPtr, "d", HandleDropCommand, true);
 
 	/* TODO REQUIRED: create the "take" command
 	TODO BASIC: add a short alias "t" */
-	CommandList_Add(cmdListPtr, "take", HandleHelpCommand, true);
-	CommandList_Add(cmdListPtr, "t", HandleHelpCommand, true);
+	CommandList_Add(cmdListPtr, "take", HandleTakeCommand, true);
+	CommandList_Add(cmdListPtr, "t", HandleTakeCommand, true);
 
 	/* TODO REQUIRED: create the "use" command
 	TODO BASIC: add a short alias "u" */
-	CommandList_Add(cmdListPtr, "use", HandleHelpCommand, true);
-	CommandList_Add(cmdListPtr, "u", HandleHelpCommand, true);
+	CommandList_Add(cmdListPtr, "use", HandleUseCommand, true);
+	CommandList_Add(cmdListPtr, "u", HandleUseCommand, true);
 
 	/* TODO REQUIRED: create the "look" command
 	TODO BASIC: add a short alias "l" */
-	CommandList_Add(cmdListPtr, "look", HandleHelpCommand, true);
-	CommandList_Add(cmdListPtr, "l", HandleHelpCommand, true);
+	CommandList_Add(cmdListPtr, "look", HandleLookCommand, true);
+	CommandList_Add(cmdListPtr, "l", HandleLookCommand, true);
 
 	/* TODO REQUIRED: create the "inventory" command
 	TODO BASIC: add a short alias "i" */
-	CommandList_Add(cmdListPtr, "inventory", HandleHelpCommand, true);
-	CommandList_Add(cmdListPtr, "i", HandleHelpCommand, true);
+	CommandList_Add(cmdListPtr, "inventory", HandleInventoryCommand, true);
+	CommandList_Add(cmdListPtr, "i", HandleInventoryCommand, true);
 
 	/* TODO REQUIRED: create the "go" command
 	TODO BASIC: add a short alias "g" */
-	CommandList_Add(cmdListPtr, "go", HandleHelpCommand, true);
-	CommandList_Add(cmdListPtr, "g", HandleHelpCommand, true);
+	CommandList_Add(cmdListPtr, "go", HandleGoCommand, true);
+	CommandList_Add(cmdListPtr, "g", HandleGoCommand, true);
 
 	/* TODO ADVANCED: create aditional commands
 	this should require the creation of additional .c files to implement the command functions */
 	CommandList_Add(cmdListPtr, "type", HandleHelpCommand, true);
 
-	CommandList_Add(cmdListPtr, "read", HandleHelpCommand, true);
-	CommandList_Add(cmdListPtr, "r", HandleHelpCommand, true);
+	CommandList_Add(cmdListPtr, "read", HandleReadCommand, true);
+	CommandList_Add(cmdListPtr, "r", HandleReadCommand, true);
 
-	CommandList_Add(cmdListPtr, "smash", HandleHelpCommand, true);
+	CommandList_Add(cmdListPtr, "smash", HandleSmashCommand, true);
+	CommandList_Add(cmdListPtr, "s", HandleSmashCommand, true);
+
+	CommandList_Add(cmdListPtr, "type", HandleTypeCommand, true);
+	CommandList_Add(cmdListPtr, "t", HandleTypeCommand, true);
 
 	/* return the newly created command list */
 	return commandList;
