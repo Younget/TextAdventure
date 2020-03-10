@@ -1,7 +1,7 @@
 /******************************************************************************
 filename    WorldDataFactory.c
-author      Justin Chambers
-DP email    justin.chambers@digipen.edu
+author      Adeline Braun.
+DP email    adeline.braun@digipen.edu
 course      GAM100 ** Do not use this code in your team project
 
 Brief Description:
@@ -15,15 +15,22 @@ This could be used to create default states as well as loaded state.
 #include "WorldData.h" /* WorldData_Create, WorldData_SetRoom */
 #include "Room.h" /* Room_Create, Room_AddRoomExit, Room_GetItemList */
 #include "ItemList.h" /* ItemList_Add */
-#include "BrickFunctions.h" /* Brick_Build */
-#include "GoldPieceFunctions.h" /* GoldPiece_Build */
+#include "WorldDataFactory.h" /* Function declarations */
 #include "ExitDoorFunctions.h" /* ExitDoor_Build */
-
-
+#include "TicketFunctions.h"
+#include "SyringeFunctions.h"
+#include "RottenFoodFunctions.h"
+#include "LabCoatFunctions.h"
+#include "KeycardFunctions.h"
+#include "NewspaperFunctions.h"
+#include "PasswordFunctions.h"
+#include "DrugStoreDoorFunctions.h"
+#include "HospitalBillFunctions.h"
+#include "LaptopFunctions.h"
 
 /******************************************************************************
 	Build room TEMPLATE
-    Use this example function to build additional rooms
+	Use this example function to build additional rooms
 ******************************************************************************/
 Room* RoomN_Build()
 {
@@ -48,333 +55,239 @@ Room* RoomN_Build()
 
 
 /* TODO REQUIRED: Build room 0 */
-Room* DirtField1_Build()
+Room* DirtField_Build()
 {
 	/* Pre-declare a room pointer which we will use to build the new room */
 	Room* room;
 
-	/* TODO REQUIRED: Call Room_Create with the Room 1 description:
-	"This is room 0. It is a display room with a cage in the middle. You can see a jeweled egg inside the cage.  There is a crack in the west wall, but you can't fit through it from this side.\n" */
-	room = Room_Create("You open your eyes. You are in a large field, which becomes easier to make out as your head clears. You stand up and gaze upon the stretch of grass, noticing lumps of dirt at equal intervals along the land. A fountain catches your eye to the north.");
+	/* TODO REQUIRED: Call Room_Create with the dirt field description: */
+	room = Room_Create("You open your eyes. You are in a large field, which becomes easier to make out as your head clears. You stand up and gaze upon the stretch of grass, noticing lumps of dirt at equal intervals along the land. A working fountain catches your eye to the north.");
 	/* TODO REQUIRED: Add an Exit "north" to Room 1 */
 	Room_AddRoomExit(room, "north", 1);
 	/* TODO BASIC: Add room exit shortcut for "n" */
 	Room_AddRoomExit(room, "n", 1);
-	Room_AddRoomExit(room, "to fountain", 1);
-	Room_AddRoomExit(room, "to the fountain", 1);
-	Room_AddRoomExit(room, "fountain", 1);
 	/* TODO REQUIRED: add an exit door to the list of items in the room, ExitDoor_Build() */
-	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+
 	/* return the new room */
 	return room;
 }
 
 
 /* TODO REQUIRED: Build room 1 */
-Room* Park2_Build()
+Room* Park_Build()
 {
 	/* Pre-declare a room pointer which we will use to build the new room */
 	Room* room;
 
-	/* TODO REQUIRED: Call Room_Create with the Room 1 description:
-	"This is room 1.  There is a large mirror here, and it shimmers as you approach.\n" */
-	room = Room_Create("As you walk towards the fountain, you also see a few benches and wilted flowers. Looks like no one has attended to this place in a long time. A dirt path leads to the east down a dark alley and to the west to the subway.");
+	/* TODO REQUIRED: Call Room_Create with the park description: */
+	room = Room_Create("As you walk towards the fountain, you see a bruce lee statue in the park. you also see a few benches and wilted flowers. Looks like no one has attended to this place in a long time. Shame. It seems like it was a highly populated area. A dirt path leads to the east down a dark alley and to the west to the subway.");
 
 	/* TODO REQUIRED: Add an Exit "through the mirror" to Room 2 */
-	Room_AddRoomExit(room, "east", 2);
-	Room_AddRoomExit(room, "west", 5);
-	/* TODO BASIC: Add exit shortcuts for "through mirror" and "mirror" */
-	Room_AddRoomExit(room, "to alley", 2);
-	Room_AddRoomExit(room, "to the alley", 2);
-	Room_AddRoomExit(room, "alley", 2);
-	Room_AddRoomExit(room, "to subway", 2);
-	Room_AddRoomExit(room, "to the subway", 2);
-	Room_AddRoomExit(room, "subway", 2);
+	Room_AddRoomExit(room, "west", 2);
+	Room_AddRoomExit(room, "east", 5);
+	Room_AddRoomExit(room, "w", 2);
+	Room_AddRoomExit(room, "e", 5);
 	/* TODO REQUIRED: Add an Exit "south" back to Room 0 */
-	Room_AddRoomExit(room, "to field", 0);
-	Room_AddRoomExit(room, "to the field", 0);
-	Room_AddRoomExit(room, "field", 0);
 	Room_AddRoomExit(room, "south", 0);
 
 	/* TODO BASIC: Add room exit shortcut for "s" */
 	Room_AddRoomExit(room, "s", 0);
 	/* TODO REQUIRED: Add a brick to the list of items in the room */
-	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+	ItemList_AddItem(Room_GetItemList(room), Newspaper_Build());
 	/* return the new room */
 	return room;
 }
 
 
 /* TODO REQUIRED: Build room 2 */
-Room* Alley3_Build()
+Room* Alley_Build()
 {
 	/* TODO: Pre-declare a room pointer which we will use to build the new room */
 	Room* room;
-	room = Room_Create("You walk into the alley, in which you see trash scattered across the ground. A sledgehammer laying on the ground catches your eye. Do the rest of this thanks");
-	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
-	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
-
+	/* TODO REQUIRED: Call Room_Create with the alley description: */
+	room = Room_Create("You walk into the dark alley. You see a shadow behind you. LOL its your own. Almost had a heart attack right there. There is a grocery store to the west and a drugstore to the north");
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
-	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
+	Room_AddRoomExit(room, "east", 1);
+	Room_AddRoomExit(room, "west", 3);
+	Room_AddRoomExit(room, "north", 4);
 
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
+	Room_AddRoomExit(room, "e", 1);
+	Room_AddRoomExit(room, "w", 3);
+	Room_AddRoomExit(room, "n", 4);
+
+	ItemList_AddItem(Room_GetItemList(room), DrugStoreDoor_Build());
+	/* return the new room */
+	return room;
+}
+
+Room* GroceryStore_Build()
+{
+	/* Pre-declare a room pointer which we will use to build the new room */
+	Room* room;
+
+	/* TODO REQUIRED: Call Room_Create with the grocery store description: */
+	room = Room_Create("You walk into the grocery store.  There is a rotten fuji apple on the ground. Behind the cashier booth is a sledgehammer.");
+
+	/* TODO REQUIRED: Add an Exit "through the mirror" to Room 2 */
+	Room_AddRoomExit(room, "east", 2);
+	/* TODO BASIC: Add room exit shortcut for "s" */
+	Room_AddRoomExit(room, "e", 2);
+	/* TODO REQUIRED: Add a brick to the list of items in the room */
+	ItemList_AddItem(Room_GetItemList(room), RottenFood_Build());
+	/* return the new room */
+	return room;
+}
+
+Room* DrugStore_Build()
+{
+	/* Pre-declare a room pointer which we will use to build the new room */
+	Room* room;
+
+	/* TODO REQUIRED: Call Room_Create with the drugstore description: */
+	room = Room_Create("You enter the drugstore. You see a bunch of opened medicine bottles. It look like no one has been here in ages. A ticket on the ground catches your eyes.");
+
+	/* TODO REQUIRED: Add an Exit "through the mirror" to Room 2 */
+	Room_AddRoomExit(room, "south", 2);
+
+	/* TODO BASIC: Add room exit shortcut for "s" */
+	Room_AddRoomExit(room, "s", 2);
+	/* TODO REQUIRED: Add a brick to the list of items in the room */
+	ItemList_AddItem(Room_GetItemList(room), Ticket_Build());
+	/* return the new room */
+	return room;
+}
+
+Room* Subway_Build()
+{
+	/* Pre-declare a room pointer which we will use to build the new room */
+	Room* room;
+
+	/* TODO REQUIRED: Call Room_Create with the subway description: */
+	room = Room_Create("You walk into the subway station. You find a pair of track shoes on the ground. Do you take them? ha ha they are size 13 mens. You hear very faintly in the distance Eee ERR.  A ticket booth is in front of you.");
+
+	/* TODO REQUIRED: Add directional exits */
+	Room_AddRoomExit(room, "north", 6);
+	Room_AddRoomExit(room, "east", 10);
+	Room_AddRoomExit(room, "west", 1);
+
+	/* TODO BASIC: Add room exit shortcuts */
+	Room_AddRoomExit(room, "n", 6);
+	Room_AddRoomExit(room, "e", 10);
+	Room_AddRoomExit(room, "w", 1);
 
 	/* return the new room */
 	return room;
 }
 
-Room* GroceryStore4_Build() /*TODO*/
+Room* TimesSquare_Build()
 {
 	/* Pre-declare a room pointer which we will use to build the new room */
 	Room* room;
 
-	/* TODO REQUIRED: Call Room_Create with the Room 1 description:
-	"This is room 1.  There is a large mirror here, and it shimmers as you approach.\n" */
-	room = Room_Create("Description");
+	/* TODO REQUIRED: Call Room_Create with the times square description: */
+	room = Room_Create("As you walk through Times Square, you notice that most of the billboard screens are off or static. You see a restored muscle car sitting the streets untouched in the streets. The speakers are quietly playing The Box by Roddy Ricch in the background. There is a newspaper on a stand nearby. No one else is here. There is a hospital to the west that you've been to before, but when... you can't remember.");
 
-	/* TODO REQUIRED: Add an Exit "through the mirror" to Room 2 */
-	Room_AddRoomExit(room, "direction", -1);
-	/* TODO BASIC: Add exit shortcuts for "through mirror" and "mirror" */
-	Room_AddRoomExit(room, "to place", -1);
-	Room_AddRoomExit(room, "to the place", -1);
-	Room_AddRoomExit(room, "place", -1);
-	Room_AddRoomExit(room, "to place2", -2);
-	Room_AddRoomExit(room, "to the place2", -2);
-	Room_AddRoomExit(room, "place2", -2);
-	/* TODO REQUIRED: Add an Exit "south" back to Room 0 */
-	Room_AddRoomExit(room, "to previous", -3);
-	Room_AddRoomExit(room, "to the previous", -3);
-	Room_AddRoomExit(room, "previous", -3);
-	Room_AddRoomExit(room, "previousdirection", -3);
+	/* TODO REQUIRED: Add directional exits */
+	Room_AddRoomExit(room, "west", 7);
+	Room_AddRoomExit(room, "south", 5);
 
-	/* TODO BASIC: Add room exit shortcut for "s" */
-	Room_AddRoomExit(room, "pdirection", -3);
-	/* TODO REQUIRED: Add a brick to the list of items in the room */
+	/* TODO BASIC: Add room exit shortcuts */
+	Room_AddRoomExit(room, "w", 7);
+	Room_AddRoomExit(room, "s", 5);
+
+	/* TODO REQUIRED: Add items to the list of items in the room */
 	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+
 	/* return the new room */
 	return room;
 }
 
-Room* DrugStore5_Build() /*TODO*/
+Room* Hospital_Build()
 {
 	/* Pre-declare a room pointer which we will use to build the new room */
 	Room* room;
 
-	/* TODO REQUIRED: Call Room_Create with the Room 1 description:
-	"This is room 1.  There is a large mirror here, and it shimmers as you approach.\n" */
-	room = Room_Create("Description");
+	/* TODO REQUIRED: Call Room_Create with the hospital description: */
+	room = Room_Create("You walk into the hospital. A clown car is parked outside. There is a lab coat hanging up on the wall. A piece of paper is on the receptionist's desk. There is also a door on the north wall labeled \"lab\".");
 
-	/* TODO REQUIRED: Add an Exit "through the mirror" to Room 2 */
-	Room_AddRoomExit(room, "direction", -1);
-	/* TODO BASIC: Add exit shortcuts for "through mirror" and "mirror" */
-	Room_AddRoomExit(room, "to place", -1);
-	Room_AddRoomExit(room, "to the place", -1);
-	Room_AddRoomExit(room, "place", -1);
-	Room_AddRoomExit(room, "to place2", -2);
-	Room_AddRoomExit(room, "to the place2", -2);
-	Room_AddRoomExit(room, "place2", -2);
-	/* TODO REQUIRED: Add an Exit "south" back to Room 0 */
-	Room_AddRoomExit(room, "to previous", -3);
-	Room_AddRoomExit(room, "to the previous", -3);
-	Room_AddRoomExit(room, "previous", -3);
-	Room_AddRoomExit(room, "previousdirection", -3);
+	/* TODO REQUIRED: Add directional exits */
+	Room_AddRoomExit(room, "north", 8);
+	Room_AddRoomExit(room, "east", 6);
 
-	/* TODO BASIC: Add room exit shortcut for "s" */
-	Room_AddRoomExit(room, "pdirection", -3);
+	/* TODO BASIC: Add room exit shortcuts */
+	Room_AddRoomExit(room, "n", 8);
+	Room_AddRoomExit(room, "e", 6);
+
 	/* TODO REQUIRED: Add a brick to the list of items in the room */
-	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+	ItemList_AddItem(Room_GetItemList(room), HospitalBill_Build());
+	ItemList_AddItem(Room_GetItemList(room), LabCoat_Build());
+
 	/* return the new room */
 	return room;
 }
 
-Room* Subway6_Build() /*TODO*/
+Room* Lab_Build()
 {
 	/* Pre-declare a room pointer which we will use to build the new room */
 	Room* room;
 
-	/* TODO REQUIRED: Call Room_Create with the Room 1 description:
-	"This is room 1.  There is a large mirror here, and it shimmers as you approach.\n" */
-	room = Room_Create("Description");
+	/* TODO REQUIRED: Call Room_Create with the lab description: */
+	room = Room_Create("You walk into the lab. You find a ton of CD's labbeled Ethans grovey jams. There is a syringe on the table, and a keycard on a adjacent one. To the east is a door to a secure area that you've been through many times before.");
 
-	/* TODO REQUIRED: Add an Exit "through the mirror" to Room 2 */
-	Room_AddRoomExit(room, "direction", -1);
-	/* TODO BASIC: Add exit shortcuts for "through mirror" and "mirror" */
-	Room_AddRoomExit(room, "to place", -1);
-	Room_AddRoomExit(room, "to the place", -1);
-	Room_AddRoomExit(room, "place", -1);
-	Room_AddRoomExit(room, "to place2", -2);
-	Room_AddRoomExit(room, "to the place2", -2);
-	Room_AddRoomExit(room, "place2", -2);
-	/* TODO REQUIRED: Add an Exit "south" back to Room 0 */
-	Room_AddRoomExit(room, "to previous", -3);
-	Room_AddRoomExit(room, "to the previous", -3);
-	Room_AddRoomExit(room, "previous", -3);
-	Room_AddRoomExit(room, "previousdirection", -3);
+	/* TODO REQUIRED: Add directional exits */
+	Room_AddRoomExit(room, "east", 9);
+	Room_AddRoomExit(room, "south", 7);
 
-	/* TODO BASIC: Add room exit shortcut for "s" */
-	Room_AddRoomExit(room, "pdirection", -3);
+	/* TODO BASIC: Add room exit shortucts */
+	Room_AddRoomExit(room, "e", 9);
+	Room_AddRoomExit(room, "s", 7);
+
 	/* TODO REQUIRED: Add a brick to the list of items in the room */
-	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+	ItemList_AddItem(Room_GetItemList(room), Syringe_Build());
+	ItemList_AddItem(Room_GetItemList(room), Keycard_Build());
 	/* return the new room */
 	return room;
 }
 
-Room* TimesSquare7_Build() /*TODO*/
+Room* SecureArea_Build()
 {
 	/* Pre-declare a room pointer which we will use to build the new room */
 	Room* room;
 
-	/* TODO REQUIRED: Call Room_Create with the Room 1 description:
-	"This is room 1.  There is a large mirror here, and it shimmers as you approach.\n" */
-	room = Room_Create("Description");
+	/* TODO REQUIRED: Call Room_Create with the secure area description: */
+	room = Room_Create("You walk into the secure area. This is your workplace! There is a piece of paper on your desk. There is a door south that lead back to Times Square");
 
-	/* TODO REQUIRED: Add an Exit "through the mirror" to Room 2 */
-	Room_AddRoomExit(room, "direction", -1);
-	/* TODO BASIC: Add exit shortcuts for "through mirror" and "mirror" */
-	Room_AddRoomExit(room, "to place", -1);
-	Room_AddRoomExit(room, "to the place", -1);
-	Room_AddRoomExit(room, "place", -1);
-	Room_AddRoomExit(room, "to place2", -2);
-	Room_AddRoomExit(room, "to the place2", -2);
-	Room_AddRoomExit(room, "place2", -2);
-	/* TODO REQUIRED: Add an Exit "south" back to Room 0 */
-	Room_AddRoomExit(room, "to previous", -3);
-	Room_AddRoomExit(room, "to the previous", -3);
-	Room_AddRoomExit(room, "previous", -3);
-	Room_AddRoomExit(room, "previousdirection", -3);
+	/* TODO REQUIRED: Add directional exits */
+	Room_AddRoomExit(room, "south", 6);
+	Room_AddRoomExit(room, "west", 8);
 
-	/* TODO BASIC: Add room exit shortcut for "s" */
-	Room_AddRoomExit(room, "pdirection", -3);
+	/* TODO BASIC: Add room exit shortcuts */
+	Room_AddRoomExit(room, "s", 6);
+	Room_AddRoomExit(room, "w", 8);
+
 	/* TODO REQUIRED: Add a brick to the list of items in the room */
-	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+	ItemList_AddItem(Room_GetItemList(room), Password_Build());
 	/* return the new room */
 	return room;
 }
 
-Room* Hospital8_Build() /*TODO*/
+Room* Apartment_Build()
 {
 	/* Pre-declare a room pointer which we will use to build the new room */
 	Room* room;
 
-	/* TODO REQUIRED: Call Room_Create with the Room 1 description:
-	"This is room 1.  There is a large mirror here, and it shimmers as you approach.\n" */
-	room = Room_Create("Description");
+	/* TODO REQUIRED: Call Room_Create with the apartment description: */
+	room = Room_Create("You walk into your apartment. You see vancover titans posters all over the wall. what a werido. There is a computer on your desk.");
 
-	/* TODO REQUIRED: Add an Exit "through the mirror" to Room 2 */
-	Room_AddRoomExit(room, "direction", -1);
-	/* TODO BASIC: Add exit shortcuts for "through mirror" and "mirror" */
-	Room_AddRoomExit(room, "to place", -1);
-	Room_AddRoomExit(room, "to the place", -1);
-	Room_AddRoomExit(room, "place", -1);
-	Room_AddRoomExit(room, "to place2", -2);
-	Room_AddRoomExit(room, "to the place2", -2);
-	Room_AddRoomExit(room, "place2", -2);
-	/* TODO REQUIRED: Add an Exit "south" back to Room 0 */
-	Room_AddRoomExit(room, "to previous", -3);
-	Room_AddRoomExit(room, "to the previous", -3);
-	Room_AddRoomExit(room, "previous", -3);
-	Room_AddRoomExit(room, "previousdirection", -3);
+	/* TODO REQUIRED: Add directional exits */
+	Room_AddRoomExit(room, "west", 5);
 
-	/* TODO BASIC: Add room exit shortcut for "s" */
-	Room_AddRoomExit(room, "pdirection", -3);
+	/* TODO BASIC: Add room exit shortcuts */
+	Room_AddRoomExit(room, "w", 5);
+
 	/* TODO REQUIRED: Add a brick to the list of items in the room */
-	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
-	/* return the new room */
-	return room;
-}
-
-Room* Lab9_Build() /*TODO*/
-{
-	/* Pre-declare a room pointer which we will use to build the new room */
-	Room* room;
-
-	/* TODO REQUIRED: Call Room_Create with the Room 1 description:
-	"This is room 1.  There is a large mirror here, and it shimmers as you approach.\n" */
-	room = Room_Create("Description");
-
-	/* TODO REQUIRED: Add an Exit "through the mirror" to Room 2 */
-	Room_AddRoomExit(room, "direction", -1);
-	/* TODO BASIC: Add exit shortcuts for "through mirror" and "mirror" */
-	Room_AddRoomExit(room, "to place", -1);
-	Room_AddRoomExit(room, "to the place", -1);
-	Room_AddRoomExit(room, "place", -1);
-	Room_AddRoomExit(room, "to place2", -2);
-	Room_AddRoomExit(room, "to the place2", -2);
-	Room_AddRoomExit(room, "place2", -2);
-	/* TODO REQUIRED: Add an Exit "south" back to Room 0 */
-	Room_AddRoomExit(room, "to previous", -3);
-	Room_AddRoomExit(room, "to the previous", -3);
-	Room_AddRoomExit(room, "previous", -3);
-	Room_AddRoomExit(room, "previousdirection", -3);
-
-	/* TODO BASIC: Add room exit shortcut for "s" */
-	Room_AddRoomExit(room, "pdirection", -3);
-	/* TODO REQUIRED: Add a brick to the list of items in the room */
-	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
-	/* return the new room */
-	return room;
-}
-
-Room* SecureArea10_Build() /*TODO*/
-{
-	/* Pre-declare a room pointer which we will use to build the new room */
-	Room* room;
-
-	/* TODO REQUIRED: Call Room_Create with the Room 1 description:
-	"This is room 1.  There is a large mirror here, and it shimmers as you approach.\n" */
-	room = Room_Create("Description");
-
-	/* TODO REQUIRED: Add an Exit "through the mirror" to Room 2 */
-	Room_AddRoomExit(room, "direction", -1);
-	/* TODO BASIC: Add exit shortcuts for "through mirror" and "mirror" */
-	Room_AddRoomExit(room, "to place", -1);
-	Room_AddRoomExit(room, "to the place", -1);
-	Room_AddRoomExit(room, "place", -1);
-	Room_AddRoomExit(room, "to place2", -2);
-	Room_AddRoomExit(room, "to the place2", -2);
-	Room_AddRoomExit(room, "place2", -2);
-	/* TODO REQUIRED: Add an Exit "south" back to Room 0 */
-	Room_AddRoomExit(room, "to previous", -3);
-	Room_AddRoomExit(room, "to the previous", -3);
-	Room_AddRoomExit(room, "previous", -3);
-	Room_AddRoomExit(room, "previousdirection", -3);
-
-	/* TODO BASIC: Add room exit shortcut for "s" */
-	Room_AddRoomExit(room, "pdirection", -3);
-	/* TODO REQUIRED: Add a brick to the list of items in the room */
-	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
-	/* return the new room */
-	return room;
-}
-
-Room* Apartment11_Build() /*TODO*/
-{
-	/* Pre-declare a room pointer which we will use to build the new room */
-	Room* room;
-
-	/* TODO REQUIRED: Call Room_Create with the Room 1 description:
-	"This is room 1.  There is a large mirror here, and it shimmers as you approach.\n" */
-	room = Room_Create("Description");
-
-	/* TODO REQUIRED: Add an Exit "through the mirror" to Room 2 */
-	Room_AddRoomExit(room, "direction", -1);
-	/* TODO BASIC: Add exit shortcuts for "through mirror" and "mirror" */
-	Room_AddRoomExit(room, "to place", -1);
-	Room_AddRoomExit(room, "to the place", -1);
-	Room_AddRoomExit(room, "place", -1);
-	Room_AddRoomExit(room, "to place2", -2);
-	Room_AddRoomExit(room, "to the place2", -2);
-	Room_AddRoomExit(room, "place2", -2);
-	/* TODO REQUIRED: Add an Exit "south" back to Room 0 */
-	Room_AddRoomExit(room, "to previous", -3);
-	Room_AddRoomExit(room, "to the previous", -3);
-	Room_AddRoomExit(room, "previous", -3);
-	Room_AddRoomExit(room, "previousdirection", -3);
-
-	/* TODO BASIC: Add room exit shortcut for "s" */
-	Room_AddRoomExit(room, "pdirection", -3);
-	/* TODO REQUIRED: Add a brick to the list of items in the room */
-	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+	ItemList_AddItem(Room_GetItemList(room), Laptop_Build());
 	/* return the new room */
 	return room;
 }
@@ -392,43 +305,24 @@ WorldData* CreateInitialWorldData()
 	int roomCount = 11;
 
 	/* create the new WorldData object with 3 rooms */
-	worldData = WorldData_Create("Welcome to my GAM100 Game!\n\n", roomCount);
+	worldData = WorldData_Create("Welcome to the Text Adventure!\n\n", roomCount);
 
 	/* build each room and assign them to the world data */
-	WorldData_SetRoom(worldData, 0, DirtField1_Build());
+
 	/* TODO REQUIRED: add rooms 1 and 2 to the world data */
-
-	/*Park*/
-	WorldData_SetRoom(worldData, 1, Park2_Build());
-
-	/*Alley*/
-	WorldData_SetRoom(worldData, 2, Alley3_Build());
-
-	/*GroceryStore*/
-	WorldData_SetRoom(worldData, 3, GroceryStore4_Build());
-
-	/*DrugStore*/
-	WorldData_SetRoom(worldData, 4, DrugStore5_Build());
-
-	/*Subway*/
-	WorldData_SetRoom(worldData, 5, Subway6_Build());
-
-	/*TimesSquare*/
-	WorldData_SetRoom(worldData, 6, TimesSquare7_Build());
-
-	/*Hospital*/
-	WorldData_SetRoom(worldData, 7, Hospital8_Build());
-
-	/*Lab*/
-	WorldData_SetRoom(worldData, 8, Lab9_Build());
-
-	/*SecureArea*/
-	WorldData_SetRoom(worldData, 9, SecureArea10_Build());
-
-	/*Apartment*/
-	WorldData_SetRoom(worldData, 10, Apartment11_Build());
+	WorldData_SetRoom(worldData, 0, DirtField_Build());
+	WorldData_SetRoom(worldData, 1, Park_Build());
 
 	/* TODO ADVANCED: add additional advanced rooms */
+	WorldData_SetRoom(worldData, 2, Alley_Build());
+	WorldData_SetRoom(worldData, 3, GroceryStore_Build());
+	WorldData_SetRoom(worldData, 4, DrugStore_Build());
+	WorldData_SetRoom(worldData, 5, Subway_Build());
+	WorldData_SetRoom(worldData, 6, TimesSquare_Build());
+	WorldData_SetRoom(worldData, 7, Hospital_Build());
+	WorldData_SetRoom(worldData, 8, Lab_Build());
+	WorldData_SetRoom(worldData, 9, SecureArea_Build());
+	WorldData_SetRoom(worldData, 10, Apartment_Build());
 
 	/* return the new object */
 	return worldData;
