@@ -98,15 +98,15 @@ void Notebook_Read(CommandContext context, GameState* gameState, WorldData* worl
 		}
 		else return;
 		if (gameState->farthestRoom >= 8) {
-			printf("There is a syringe that is glowing magenta labeled EXPERIMENTAL on the table as well as some empty ones laying on the ground. There is a projector displaying graphs and charts. It appears it showing information about the virus. .");
+			printf("There is a syringe that is glowing magenta labeled EXPERIMENTAL on the table, along with a keycard as well as some empty ones laying on the ground. There is a projector displaying graphs and charts. It appears it showing information about the virus.");
 		}
 		else return;
 		if (gameState->farthestRoom >= 9) {
-			printf("It looks clean. As if somone cleaned it yesterday. You see a laptop on a table and a lab coat on a coat hanger.");
+			printf("It looks clean. As if somone cleaned it yesterday. You see a piece of paper on the desk.");
 		}
 		else return;
 		if (gameState->farthestRoom >= 10) {
-			printf("You feel like you know this place. You start to recognize everything in the room. The posters, the kitchen, the TV. Everything is clicking now.");
+			printf("You feel like you know this place.You start to recognize everything in the room.The posters, the kitchen, the laptop and the flatscreen 40 TV. Everything is clicking now.");
 		}
 		else return;
 
