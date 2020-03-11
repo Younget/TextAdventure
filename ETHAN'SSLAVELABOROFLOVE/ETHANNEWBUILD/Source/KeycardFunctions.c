@@ -53,14 +53,13 @@ void Keycard_Use(CommandContext context, GameState* gameState, WorldData* worldD
 	}
 
 	/* check if we're in the right room to use the item */
-	if (gameState->currentRoomIndex != 8)
+	if (gameState->currentRoomIndex != 8 || gameState->currentRoomIndex != 5)
 	{
 		/* we are not in the right room - inform the user of the problem and take no action */
 		printf("There's no use for the keycard here.\n");
 		return;
 	}
-
-	else
+	else if (gamestate->currentRoomIndex = 8)
 	{
 		/* get the current room */
 		room = WorldData_GetRoom(worldData, gameState->currentRoomIndex);
@@ -71,6 +70,9 @@ void Keycard_Use(CommandContext context, GameState* gameState, WorldData* worldD
 		{
 			return; /* take no action, as something is wrong - we should always have an item list */
 		}
+
+		/* add exit into secure area */
+		Room_AddRoomExit(WorldData_GetRoom(worldData, gameState->currentRoomIndex), "west", 9);
 
 		/* Find the brick in the player's inventory - it should be there, since we are in the Inventory context */
 		keycard = ItemList_FindItem(gameState->inventory, "keycard");
@@ -85,11 +87,39 @@ void Keycard_Use(CommandContext context, GameState* gameState, WorldData* worldD
 		Room_SetDescription(room, "You walk back into the lab. The door to the main hospital is south.\n");
 
 	}
+	else
+	{
+		/* get the current room */
+		room = WorldData_GetRoom(worldData, gameState->currentRoomIndex);
+
+		/* get the list of items in the current room */
+		roomItemsPtr = Room_GetItemList(room);
+		if (roomItemsPtr == NULL)
+		{
+			return; /* take no action, as something is wrong - we should always have an item list */
+		}
+		/* add exit into apartment */
+		Room_AddRoomExit(WorldData_GetRoom(worldData, gameState->currentRoomIndex), "west", 10);
+
+		/* Find the brick in the player's inventory - it should be there, since we are in the Inventory context */
+		keycard = ItemList_FindItem(gameState->inventory, "keycard");
+
+		/* Tell the user what they did */
+		printf("You swipe the keycard on your door and it unlocks.\n");
+
+		/* Add to the player's score */
+		GameState_ChangeScore(gameState, 10);
+
+		/* Update the room description to reflect the change in the room */
+		Room_SetDescription(room, "You walk back into your apartment. The subway is west from here.\n");
+
+	}
 }
+
 
 /* Build a "keycard" object */
 Item* Keycard_Build()
 {
 	/* Create a "keycard" item, using the functions defined in this file */
-	return Item_Create("keycard", "A keycard used to get into the secure area", true, Keycard_Use, Keycard_Take, NULL);
+	return Item_Create("keycard", "A keycard used to get into the secure area", true, Keycard_Use, Keycard_Take, NULL, NULL, NULL, NULL);
 }
