@@ -1,0 +1,35 @@
+Command Handler
+Command List
+Drop Command Handler
+Drug Store door functions
+Exit Door Functions
+Game Flags
+Game State
+Game state Factory
+Go Command Handler
+Help Command Handler
+Home Entrance Functions
+Hospital Bill Functions
+Input Provider
+InventoryCommand handler
+item
+item list
+Keycard functions
+Lab Coat Functions
+Lab door functions
+Look Command Handler
+Map Functions
+Newspaper functions
+Password functions
+Quit Command
+Read Command handler 
+Room
+Rotten Food functions
+Sledge hammer functions
+SubWay door functions
+Syringe Functions
+Ticket Functions
+Type Command Handler
+
+
+
