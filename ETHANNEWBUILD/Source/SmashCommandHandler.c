@@ -37,6 +37,13 @@ void HandleSmashCommand(CommandData* command, GameState* gameState, WorldData* w
 		return; /* take no action if the parameters are invalid */
 	}
 
+	/*only works if sledge hammer is present*/
+	if (ItemList_FindItem(gameState->inventory, "sledgehammer") == NULL)
+	{
+		printf("Wow you've got quite a bit of pent up rage.... probably best to not hurt yourself now");
+		return; 
+	}
+
 	/* retrieve the current room */
 	room = WorldData_GetRoom(worldData, gameState->currentRoomIndex);
 
