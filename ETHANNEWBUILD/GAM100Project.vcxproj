@@ -121,6 +121,7 @@
     <ClInclude Include="Source\ReadCommandHandler.h" />
     <ClInclude Include="Source\Room.h" />
     <ClInclude Include="Source\RoomExit.h" />
+    <ClInclude Include="Source\SledgehammerFunctions.h" />
     <ClInclude Include="Source\SmashCommandHander.h" />
     <ClInclude Include="Source\stdafx.h" />
     <ClInclude Include="Source\TakeCommandHandler.h" />
@@ -165,6 +166,7 @@
     <ClCompile Include="Source\ReadCommandHandler.c" />
     <ClCompile Include="Source\Room.c" />
     <ClCompile Include="Source\RoomExit.c" />
+    <ClCompile Include="Source\SledgehammerFunctions.c" />
     <ClCompile Include="Source\SmashCommandHandler.c" />
     <ClCompile Include="Source\stdafx.c" />
     <ClCompile Include="Source\TakeCommandHandler.c" />

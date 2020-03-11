@@ -28,6 +28,7 @@ This could be used to create default states as well as loaded state.
 #include "HospitalBillFunctions.h"
 #include "LaptopFunctions.h"
 #include "NotebookFunctions.h"
+#include "SledgehammerFunctions.h"
 
 /******************************************************************************
 	Build room TEMPLATE
@@ -62,7 +63,7 @@ Room* DirtField_Build()
 	Room* room;
 
 	/* TODO REQUIRED: Call Room_Create with the dirt field description: */
-	room = Room_Create("You open your eyes. You are in a large field, which becomes easier to make out as your head clears. You stand up and gaze upon the stretch of grass, noticing lumps of dirt at equal intervals along the land. A working fountain catches your eye to the north.");
+	room = Room_Create("You open your eyes. You are in a large field, which becomes easier to make out as your head clears.\nYou stand up and gaze upon the stretch of grass, noticing lumps of dirt at equal intervals along the land.\nA working fountain catches your eye to the north.\n");
 	/* TODO REQUIRED: Add an Exit "north" to Room 1 */
 	Room_AddRoomExit(room, "north", 1);
 	/* TODO BASIC: Add room exit shortcut for "n" */
@@ -81,7 +82,7 @@ Room* Park_Build()
 	Room* room;
 
 	/* TODO REQUIRED: Call Room_Create with the park description: */
-	room = Room_Create("As you walk towards the fountain, you see a bruce lee statue in the park. you also see a few benches and wilted flowers. Looks like no one has attended to this place in a long time. Shame. It seems like it was a highly populated area. A dirt path leads to the east down a dark alley and to the west to the subway.");
+	room = Room_Create("As you walk towards the fountain, you see a bruce lee statue in the park.\nYou also see a few benches and wilted flowers.\nLooks like no one has attended to this place in a long time. Shame.\nIt seems like it was a highly populated area.\nA dirt path leads to the east down a dark alley and to the west to the subway.\n");
 
 	/* TODO REQUIRED: Add an Exit "through the mirror" to Room 2 */
 	Room_AddRoomExit(room, "west", 2);
@@ -94,7 +95,6 @@ Room* Park_Build()
 	/* TODO BASIC: Add room exit shortcut for "s" */
 	Room_AddRoomExit(room, "s", 0);
 	/* TODO REQUIRED: Add a brick to the list of items in the room */
-	ItemList_AddItem(Room_GetItemList(room), Newspaper_Build());
 	/* return the new room */
 	return room;
 }
@@ -106,7 +106,7 @@ Room* Alley_Build()
 	/* TODO: Pre-declare a room pointer which we will use to build the new room */
 	Room* room;
 	/* TODO REQUIRED: Call Room_Create with the alley description: */
-	room = Room_Create("You walk into the dark alley. You see a shadow behind you. LOL its your own. Almost had a heart attack right there. There is a grocery store to the west and a drugstore to the north");
+	room = Room_Create("You walk into the dark alley. You see a shadow behind you.\nLOL its your own. Almost had a heart attack right there.\nThere is a grocery store to the west and a drugstore to the north.\n");
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
 	Room_AddRoomExit(room, "east", 1);
 	Room_AddRoomExit(room, "west", 3);
@@ -128,7 +128,7 @@ Room* GroceryStore_Build()
 	Room* room;
 
 	/* TODO REQUIRED: Call Room_Create with the grocery store description: */
-	room = Room_Create("You walk into the grocery store.  There is a rotten fuji apple on the ground. Behind the cashier booth is a sledgehammer.");
+	room = Room_Create("You walk into the grocery store.\nThere is a rotten fuji apple on the ground.\nBehind the cashier booth is a sledgehammer.\n");
 
 	/* TODO REQUIRED: Add an Exit "through the mirror" to Room 2 */
 	Room_AddRoomExit(room, "east", 2);
@@ -136,6 +136,7 @@ Room* GroceryStore_Build()
 	Room_AddRoomExit(room, "e", 2);
 	/* TODO REQUIRED: Add a brick to the list of items in the room */
 	ItemList_AddItem(Room_GetItemList(room), RottenFood_Build());
+	ItemList_AddItem(Room_GetItemList(room), Sledgehammer_Build());
 	/* return the new room */
 	return room;
 }
@@ -146,7 +147,7 @@ Room* DrugStore_Build()
 	Room* room;
 
 	/* TODO REQUIRED: Call Room_Create with the drugstore description: */
-	room = Room_Create("You enter the drugstore. You see a bunch of opened medicine bottles. It look like no one has been here in ages. A ticket on the ground catches your eyes.");
+	room = Room_Create("You enter the drugstore.\nYou see a bunch of opened medicine bottles.\nIt look like no one has been here in ages.\nA ticket on the ground catches your eyes.\n");
 
 	/* TODO REQUIRED: Add an Exit "through the mirror" to Room 2 */
 	Room_AddRoomExit(room, "south", 2);
@@ -165,7 +166,7 @@ Room* Subway_Build()
 	Room* room;
 
 	/* TODO REQUIRED: Call Room_Create with the subway description: */
-	room = Room_Create("You walk into the subway station. You find a pair of track shoes on the ground. Do you take them? ha ha they are size 13 mens. You hear very faintly in the distance Eee ERR.  A ticket booth is in front of you.");
+	room = Room_Create("You walk into the subway station.\nYou find a pair of track shoes on the ground.\nDo you take them? ha ha they are size 13 mens. You hear very faintly in the distance Eee ERR.\nA ticket booth is in front of you.\n");
 
 	/* TODO REQUIRED: Add directional exits */
 	Room_AddRoomExit(room, "north", 6);
@@ -187,7 +188,7 @@ Room* TimesSquare_Build()
 	Room* room;
 
 	/* TODO REQUIRED: Call Room_Create with the times square description: */
-	room = Room_Create("As you walk through Times Square, you notice that most of the billboard screens are off or static. You see a restored muscle car sitting the streets untouched in the streets. The speakers are quietly playing The Box by Roddy Ricch in the background. There is a newspaper on a stand nearby. No one else is here. There is a hospital to the west that you've been to before, but when... you can't remember.");
+	room = Room_Create("As you walk through Times Square, you notice that most of the billboard screens are off or static.\nYou see a restored muscle car sitting the streets untouched in the streets.\nThe speakers are quietly playing The Box by Roddy Ricch in the background.\nThere is a newspaper on a stand nearby.\nNo one else is here.\nThere is a hospital to the west that you've been to before, but when... you can't remember.\n");
 
 	/* TODO REQUIRED: Add directional exits */
 	Room_AddRoomExit(room, "west", 7);
@@ -199,7 +200,7 @@ Room* TimesSquare_Build()
 
 	/* TODO REQUIRED: Add items to the list of items in the room */
 	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
-
+	ItemList_AddItem(Room_GetItemList(room), Newspaper_Build());
 	/* return the new room */
 	return room;
 }
@@ -210,7 +211,7 @@ Room* Hospital_Build()
 	Room* room;
 
 	/* TODO REQUIRED: Call Room_Create with the hospital description: */
-	room = Room_Create("You walk into the hospital. A clown car is parked outside. There is a lab coat hanging up on the wall. A piece of paper is on the receptionist's desk. There is also a door on the north wall labeled \"lab\".");
+	room = Room_Create("You walk into the hospital.\nA clown car is parked outside.\nThere is a lab coat hanging up on the wall.\nA piece of paper is on the receptionist's desk.\nThere is also a door on the north wall labeled \"lab\".\n");
 
 	/* TODO REQUIRED: Add directional exits */
 	Room_AddRoomExit(room, "north", 8);
@@ -234,7 +235,7 @@ Room* Lab_Build()
 	Room* room;
 
 	/* TODO REQUIRED: Call Room_Create with the lab description: */
-	room = Room_Create("You walk into the lab. You find a ton of CD's labbeled Ethans grovey jams. There is a syringe on the table, and a keycard on a adjacent one. To the east is a door to a secure area that you've been through many times before.");
+	room = Room_Create("You walk into the lab. You find a ton of CD's labbeled Ethans groovey jams.\nThere is a syringe on the table, and a keycard on a adjacent one.\nTo the east is a door to a secure area that you've been through many times before.\n");
 
 	/* TODO REQUIRED: Add directional exits */
 	Room_AddRoomExit(room, "east", 9);
@@ -257,7 +258,7 @@ Room* SecureArea_Build()
 	Room* room;
 
 	/* TODO REQUIRED: Call Room_Create with the secure area description: */
-	room = Room_Create("You walk into the secure area. This is your workplace! There is a piece of paper on your desk. There is a door south that lead back to Times Square");
+	room = Room_Create("You walk into the secure area.\nThis is your workplace! There is a piece of paper on your desk.\nThere is a door south that lead back to Times Square.\n");
 
 	/* TODO REQUIRED: Add directional exits */
 	Room_AddRoomExit(room, "south", 6);
@@ -279,7 +280,7 @@ Room* Apartment_Build()
 	Room* room;
 
 	/* TODO REQUIRED: Call Room_Create with the apartment description: */
-	room = Room_Create("You walk into your apartment. You see vancover titans posters all over the wall. what a werido. There is a computer on your desk.");
+	room = Room_Create("You walk into your apartment.\nYou see vancover titans posters all over the wall. what a werido.\nThere is a laptop on your desk.");
 
 	/* TODO REQUIRED: Add directional exits */
 	Room_AddRoomExit(room, "west", 5);
