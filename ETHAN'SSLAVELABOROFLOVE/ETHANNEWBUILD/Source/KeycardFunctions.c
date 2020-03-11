@@ -121,5 +121,5 @@ void Keycard_Use(CommandContext context, GameState* gameState, WorldData* worldD
 Item* Keycard_Build()
 {
 	/* Create a "keycard" item, using the functions defined in this file */
-	return Item_Create("keycard", "A keycard used to get into the secure area", true, Keycard_Use, Keycard_Take, NULL);
+	return Item_Create("keycard", "A keycard used to get into the secure area", true, Keycard_Use, Keycard_Take, NULL, NULL, NULL, NULL);
 }
