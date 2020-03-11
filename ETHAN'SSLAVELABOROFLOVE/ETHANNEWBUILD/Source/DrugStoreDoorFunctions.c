@@ -47,8 +47,10 @@ void DrugStoreDoor_Smash(CommandContext context, GameState* gameState, WorldData
 	/* Checks whether sledgehammer is actually there*/
 	if (sledgehammer != NULL)
 	{
-		printf("With a mighty swing, you miss your target and the sheer force makes you spin one-hundred-eighty degrees. Your body clashes into the weak barricade and the sledgehammer is left flying off into a distant window.\n ");
-		printf("Yay?");
+		printf("You do not have a sledgehammer.\n ");
+	}
+	else {
+		Room_AddRoomExit(WorldData_GetRoom(worldData, gameState->currentRoomIndex), "north", 4);
 	}
 	return;
 }
